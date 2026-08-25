@@ -311,7 +311,7 @@ footer a:hover { color: #fff; }
   .story-topline, .story-progress { display: none; }
   .story-layout { height: auto; display: block; }
   .story-copies { min-height: 0; display: grid; gap: 70px; }
-  .js .story-copy { position: static; opacity: 1; transform: none; pointer-events: auto; }
+  .js .story-copy, .js .story-copy.is-active { position: static; opacity: 1; transform: none; pointer-events: auto; }
   .story-copy h2, .section-heading h2, .school-copy h2, .closing h2 { font-size: clamp(40px, 11.5vw, 46px); }
   .story-copy > p:last-child { font-size: 15px; }
   .story-visual { display: none; }

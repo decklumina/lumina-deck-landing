@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "typecheck": "tsc --noEmit",
-    "build": "next build && node scripts/prepare-standalone.mjs",
+    "build": "next build && node scripts/write-htaccess.mjs",
     "lint": "eslint .",
-    "start": "node .next/standalone/server.js"
+    "start": "npx serve out"
   },
   "dependencies": {
     "next": "^16.3.2",
