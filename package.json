@@ -1,0 +1,26 @@
+{
+  "name": "lumina-deck-landing",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "typecheck": "tsc --noEmit",
+    "build": "next build && node scripts/write-htaccess.mjs",
+    "lint": "eslint .",
+    "start": "npx serve out"
+  },
+  "dependencies": {
+    "next": "^16.3.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.13",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.3.2",
+    "typescript": "~5.9.3"
+  }
+}
