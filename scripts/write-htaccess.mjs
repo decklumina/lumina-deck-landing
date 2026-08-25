@@ -1,4 +1,4 @@
-import { writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 
 const rules = `Options -Indexes
 DirectoryIndex index.html
@@ -20,4 +20,7 @@ DirectoryIndex index.html
 </IfModule>
 `;
 
-await writeFile(new URL("../out/.htaccess", import.meta.url), rules);
+const outputDirectory = new URL("../out/", import.meta.url);
+
+await mkdir(outputDirectory, { recursive: true });
+await writeFile(new URL(".htaccess", outputDirectory), rules);
