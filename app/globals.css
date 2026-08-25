@@ -301,13 +301,18 @@ footer a:hover { color: #fff; }
   .store-badge { min-width: 0; padding-inline: 10px; }
   .store-badge > span:last-child { font-size: 13px; }
   .hero .button-secondary { border-color: #ffffffb8; box-shadow: 0 12px 30px #050a2130; }
+  .trust-marquee { padding: 14px 20px; }
+  .marquee-track { width: 100%; animation: none; display: block; }
+  .marquee-group { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .marquee-group:nth-child(2), .marquee-group i { display: none; }
+  .marquee-track b { min-height: 44px; padding: 8px 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #cfd6ee; border-radius: 12px; font-size: 8px; line-height: 1.35; letter-spacing: .1em; text-align: center; background: #f7f8ff; }
   .story { height: auto; }
-  .story-sticky { position: static; height: auto; padding: 95px 20px; overflow: visible; }
+  .story-sticky { position: static; height: auto; padding: 78px 20px 95px; overflow: visible; }
   .story-topline, .story-progress { display: none; }
   .story-layout { height: auto; display: block; }
   .story-copies { min-height: 0; display: grid; gap: 70px; }
   .js .story-copy { position: static; opacity: 1; transform: none; pointer-events: auto; }
-  .story-copy h2, .section-heading h2, .school-copy h2, .closing h2 { font-size: 46px; }
+  .story-copy h2, .section-heading h2, .school-copy h2, .closing h2 { font-size: clamp(40px, 11.5vw, 46px); }
   .story-copy > p:last-child { font-size: 15px; }
   .story-visual { display: none; }
   .section-pad { padding: 95px 20px; }
