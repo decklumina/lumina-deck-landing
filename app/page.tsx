@@ -1,78 +1,93 @@
 import Image from "next/image";
-import { Brand, StoreBadges } from "@/components/Brand";
+import { Brand } from "@/components/Brand";
 import { LandingInteractions } from "@/components/LandingInteractions";
 
-const storySteps = [
+const learningSteps = [
   {
-    chapter: "O ponto de partida",
-    title: <>Jogue o conteúdo.<br /><em>A gente organiza.</em></>,
-    text: "PDF, foto, texto ou anotação: você escolhe a fonte e mantém o controle antes de gerar qualquer material.",
+    title: "Envie seu material",
+    text: "PDF, slide, texto, foto ou anotação.",
   },
   {
-    chapter: "Clareza com IA",
-    title: <>Um conteúdo.<br /><em>Três jeitos de aprender.</em></>,
-    text: "Flashcards para retenção, quiz para testar e áudio para reforçar. Só aparecem os formatos realmente disponíveis.",
+    title: "A Lumina transforma",
+    text: "Seu conteúdo vira flashcards e quizzes.",
   },
   {
-    chapter: "Ritmo inteligente",
-    title: <>Revisar menos.<br /><em>Lembrar por mais tempo.</em></>,
-    text: "O FSRS aprende com suas respostas e encontra o próximo momento ideal de revisão, cartão por cartão.",
+    title: "Pratique de verdade",
+    text: "Responda, erre, acerte e descubra o que realmente sabe.",
   },
   {
-    chapter: "Progresso contínuo",
-    title: <>Seu estudo segue.<br /><em>Onde você estiver.</em></>,
-    text: "Comece na web, continue no celular e enxergue o avanço sem transformar aprendizado em uma planilha.",
+    title: "Revise na hora certa",
+    text: "A Lumina organiza o que precisa voltar antes que você esqueça.",
   },
 ];
 
-function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
-  return <p className={`eyebrow${dark ? " eyebrow-dark" : ""}`}><span />{children}</p>;
+const features = [
+  {
+    icon: "▤",
+    title: "Flashcards inteligentes",
+    text: "Transforme seu material em prática ativa.",
+  },
+  {
+    icon: "?",
+    title: "Quizzes",
+    text: "Descubra o que você realmente sabe.",
+  },
+  {
+    icon: "↻",
+    title: "Revisões inteligentes",
+    text: "O conteúdo volta na hora certa.",
+  },
+  {
+    icon: "◎",
+    title: "Pontos fracos",
+    text: "Veja onde precisa melhorar.",
+  },
+  {
+    icon: "✓",
+    title: "Estudo do dia",
+    text: "Saiba exatamente o que estudar agora.",
+  },
+];
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return <p className="eyebrow">{children}</p>;
 }
 
-function ProductPreview() {
+function Oito({ className = "", priority = false }: { className?: string; priority?: boolean }) {
   return (
-    <div className="hero-product reveal" aria-label="Prévia da experiência Lumina Deck">
-      <div className="product-glow" />
-      <div className="app-window">
-        <div className="window-top">
-          <span className="mini-brand"><Image src="/logo-lumina.svg" width={48} height={31} alt="" /></span>
-          <span className="window-pill">Hoje</span><span className="avatar">L</span>
-        </div>
-        <div className="window-content">
-          <div className="welcome-line"><small>Bom dia, Lucas</small><strong>O que vamos aprender?</strong></div>
-          <div className="focus-card">
-            <div><span className="focus-label">REVISÃO DO DIA</span><strong>12 cartões te esperam</strong><small>Uma sessão rápida mantém seu ritmo.</small></div>
-            <span className="focus-play">▶</span>
-          </div>
-          <div className="metric-row">
-            <span><small>Sequência</small><strong>8 dias</strong></span>
-            <span><small>Retenção</small><strong>91%</strong></span>
-            <span><small>Esta semana</small><strong>2h 40</strong></span>
-          </div>
-          <div className="deck-row"><span className="deck-icon">Bio</span><span><strong>Biologia celular</strong><small>8 para revisar</small></span><i>62%</i></div>
-          <div className="deck-row"><span className="deck-icon amber">His</span><span><strong>Brasil República</strong><small>4 para revisar</small></span><i>84%</i></div>
-        </div>
-      </div>
-      <div className="float-chip chip-ai"><span>✦</span> Material pronto</div>
-      <div className="float-chip chip-fsrs"><span>↗</span> FSRS ajustado</div>
-    </div>
+    <Image
+      className={className}
+      src="/logo-lumina.svg"
+      width={768}
+      height={765}
+      alt="Oito, o mascote azul da Lumina, segurando flashcards"
+      priority={priority}
+    />
   );
 }
 
-function StoryVisual() {
+function LearningStoryVisual() {
   return (
     <div className="story-visual" data-story-visual data-step="0" aria-hidden="true">
-      <div className="visual-orbit orbit-one" /><div className="visual-orbit orbit-two" />
-      <div className="source-card source-pdf"><span>PDF</span><strong>Biologia celular</strong><small>32 páginas</small></div>
-      <div className="source-card source-note"><span>TXT</span><strong>Minhas anotações</strong><small>Colado agora</small></div>
-      <div className="magic-core"><Image src="/logo-lumina.svg" width={125} height={81} alt="" /><span /></div>
-      <div className="format-card format-flash"><span>01</span><strong>Flashcards</strong><small>Revisão ativa</small></div>
-      <div className="format-card format-quiz"><span>02</span><strong>Quiz</strong><small>Teste imediato</small></div>
-      <div className="format-card format-audio"><span>03</span><strong>Áudio</strong><small>Reforço leve</small></div>
-      <div className="review-card"><small>FRENTE</small><strong>Qual é a função da mitocôndria?</strong><span>Toque para revelar</span></div>
-      <div className="schedule-ring"><span><strong>91%</strong><small>retenção</small></span></div>
-      <div className="device desktop-device"><div /><span>Lumina web</span></div>
-      <div className="device phone-device"><div><Image src="/logo-lumina.svg" width={120} height={78} alt="" /></div><span>Lumina app</span></div>
+      <div className="story-halo" />
+      <Oito className="story-oito" />
+      <div className="visual-step visual-step-0">
+        <span className="source-chip source-pdf"><b>PDF</b>Biologia celular</span>
+        <span className="source-chip source-photo"><b>FOTO</b>Anotação da aula</span>
+        <span className="source-chip source-text"><b>TEXTO</b>Resumo colado</span>
+      </div>
+      <div className="visual-step visual-step-1">
+        <span className="result-card result-flash"><small>FLASHCARD</small><b>Qual é a função da mitocôndria?</b></span>
+        <span className="result-card result-quiz"><small>QUIZ</small><b>Teste o que você entendeu</b></span>
+      </div>
+      <div className="visual-step visual-step-2">
+        <span className="answer-card"><small>SUA RESPOSTA</small><b>Produzir energia para a célula.</b><em>✓ Boa resposta</em></span>
+        <span className="feedback-chip">Aprendi</span>
+      </div>
+      <div className="visual-step visual-step-3">
+        <span className="review-calendar"><small>PRÓXIMA REVISÃO</small><b>Amanhã, 18:30</b><i><em /><em /><em /><em /></i></span>
+        <span className="memory-chip">Oito te avisa</span>
+      </div>
     </div>
   );
 }
@@ -81,65 +96,243 @@ export default function HomePage() {
   return (
     <>
       <LandingInteractions />
-      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
+      <a className="skip-link" href="#conteudo">
+        Pular para o conteúdo
+      </a>
+
       <header className="site-header" data-header>
         <Brand />
-        <nav aria-label="Navegação principal"><a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#escolas">Para escolas</a></nav>
-        <a className="button button-small button-ghost" href="/dashboard/">Acessar dashboard <span aria-hidden="true">↗</span></a>
+        <nav aria-label="Navegação principal">
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#recursos">Recursos</a>
+          <a href="#oito">Conheça o Oito</a>
+        </nav>
+        <a className="button button-small button-secondary" href="/dashboard/">
+          Entrar
+        </a>
       </header>
 
       <main id="conteudo">
         <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-aurora" aria-hidden="true" data-aurora /><div className="hero-grid" aria-hidden="true" />
-          <div className="hero-copy reveal">
-            <Eyebrow>IA para estudar, não para complicar</Eyebrow>
-            <h1 id="hero-title">Seu material de estudo, <em>finalmente estudando com você.</em></h1>
-            <p className="hero-lead">Envie o conteúdo. A Lumina organiza, transforma e lembra o que revisar — para você gastar energia aprendendo, não montando planilhas.</p>
-            <div className="hero-actions"><a className="button button-primary" href="#como-funciona">Ver como funciona <span aria-hidden="true">↓</span></a><a className="button button-secondary" href="/dashboard/">Acessar dashboard</a></div>
-            <StoreBadges />
+          <div className="hero-copy">
+            <Eyebrow>APRENDA DE VERDADE</Eyebrow>
+            <h1 id="hero-title">Pare de estudar do jeito errado.</h1>
+            <p className="hero-lead">
+              Transforme seus <strong>PDFs, slides, fotos e anotações</strong> em
+              flashcards e quizzes prontos para estudar.
+            </p>
+            <p>
+              A Lumina te ajuda a <strong>aprender de verdade, saber o que revisar e
+              lembrar quando você mais precisa.</strong>
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="/dashboard/">
+                Começar grátis
+              </a>
+              <span className="free-note"><b>100% grátis.</b> Sem cartão de crédito.</span>
+            </div>
           </div>
-          <ProductPreview />
-          <div className="scroll-cue" aria-hidden="true"><span />role para descobrir</div>
+
+          <div className="hero-visual" aria-label="Seu plano de estudo na Lumina">
+            <span className="hero-orb" aria-hidden="true" />
+            <Oito className="hero-oito" priority />
+            <div className="today-card">
+              <div className="today-card-head">
+                <span>SEU ESTUDO DE HOJE</span>
+                <b>18 min</b>
+              </div>
+              <strong>Você já sabe por onde começar.</strong>
+              <div className="today-progress"><span /></div>
+              <div className="today-task is-current"><i>1</i><span><b>12 revisões</b><small>Primeiro passo</small></span><em>Começar</em></div>
+              <div className="today-task"><i>2</i><span><b>8 novos flashcards</b><small>Depois da revisão</small></span></div>
+              <div className="today-task"><i>3</i><span><b>1 quiz recomendado</b><small>Para fechar o estudo</small></span></div>
+            </div>
+          </div>
         </section>
 
-        <div className="trust-marquee" aria-label="Recursos principais"><div className="marquee-track">
-          {[0, 1].map((group) => <span className="marquee-group" key={group}><b>FLASHCARDS INTELIGENTES</b><i>✦</i><b>QUIZZES PERSONALIZADOS</b><i>✦</i><b>ÁUDIO PARA REVISAR</b><i>✦</i><b>REPETIÇÃO ESPAÇADA FSRS</b><i>✦</i></span>)}
-        </div></div>
+        <section className="recognition section-pad" aria-labelledby="recognition-title">
+          <div className="section-heading centered">
+            <Eyebrow>RECONHECER NÃO É LEMBRAR</Eyebrow>
+            <h2 id="recognition-title">Você estuda. Mas será que está aprendendo?</h2>
+            <p>
+              Reler, grifar e fazer resumos podem dar a sensação de aprendizado.
+              Mas reconhecer uma informação não significa conseguir lembrá-la sozinho.
+            </p>
+          </div>
+          <div className="recall-card">
+            <div className="recall-passive">
+              <span>LEITURA PASSIVA</span>
+              <p>A resposta parece familiar quando está na sua frente.</p>
+              <div className="fake-highlight">A mitocôndria produz energia para a célula.</div>
+              <small>“Ah, isso eu sei.”</small>
+            </div>
+            <div className="recall-arrow" aria-hidden="true">→</div>
+            <div className="recall-active">
+              <span>RECUPERAÇÃO ATIVA</span>
+              <p>Você tenta buscar a resposta sem olhar.</p>
+              <div className="question-card">Qual é a função da mitocôndria?</div>
+              <small>É aí que o aprendizado acontece.</small>
+            </div>
+          </div>
+          <div className="recall-statement">
+            <p>É aí que entra a <strong>Recuperação Ativa.</strong></p>
+            <h3>Pare de apenas reconhecer.<br />Treine seu cérebro para lembrar.</h3>
+          </div>
+        </section>
 
-        <section className="story" id="como-funciona" data-story aria-labelledby="story-title">
-          <div className="story-sticky">
-            <div className="story-topline"><Eyebrow dark>Do material à memória</Eyebrow><p><strong data-step-counter>01</strong> / 04</p></div>
+        <section className="how-story" id="como-funciona" data-story aria-labelledby="how-title">
+          <div className="how-sticky">
+            <div className="story-topline">
+              <Eyebrow>SEM COMPLICAÇÃO</Eyebrow>
+              <p><strong data-step-counter>01</strong> / 04</p>
+            </div>
             <div className="story-layout">
               <div className="story-copies">
-                {storySteps.map((step, index) => <article className={`story-copy${index === 0 ? " is-active" : ""}`} data-story-copy={index} key={step.chapter}>
-                  <p className="chapter">{step.chapter}</p><h2 id={index === 0 ? "story-title" : undefined}>{step.title}</h2><p>{step.text}</p>
-                </article>)}
+                <div className="story-intro">
+                  <h2 id="how-title">Como funciona?</h2>
+                  <p>Do seu material ao estudo do dia em quatro passos claros.</p>
+                </div>
+                {learningSteps.map((step, index) => (
+                  <article
+                    className={`story-copy${index === 0 ? " is-active" : ""}`}
+                    data-story-copy={index}
+                    key={step.title}
+                  >
+                    <span className="step-number">{index + 1}</span>
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                    {index === learningSteps.length - 1 ? <strong>Você só precisa estudar.</strong> : null}
+                  </article>
+                ))}
               </div>
-              <StoryVisual />
+              <LearningStoryVisual />
             </div>
             <div className="story-progress" aria-hidden="true"><span data-story-progress /></div>
           </div>
         </section>
 
-        <section className="bento-section section-pad" id="recursos" aria-labelledby="resources-title">
-          <div className="section-heading reveal"><Eyebrow dark>Feito para o estudo real</Eyebrow><h2 id="resources-title">Tecnologia quando ajuda.<br /><em>Silêncio quando não precisa.</em></h2><p>Uma interface que mostra o próximo passo, reduz decisões e deixa o conteúdo ocupar o centro.</p></div>
-          <div className="bento-grid">
-            <article className="bento bento-main reveal"><div className="bento-copy"><span className="number">01</span><h3>Revisão que se adapta</h3><p>Errou, achou difícil ou dominou? Cada resposta recalibra o calendário com FSRS.</p></div><div className="rating-demo"><button>Errei<small>10 min</small></button><button>Difícil<small>3 dias</small></button><button>Bom<small>8 dias</small></button><button>Fácil<small>21 dias</small></button></div></article>
-            <article className="bento bento-purple reveal"><span className="bento-icon">✦</span><h3>IA com revisão humana</h3><p>Você confere e edita antes de transformar geração em material de verdade.</p><div className="spark-lines"><i /><i /><i /></div></article>
-            <article className="bento bento-mint reveal"><span className="bento-icon">◎</span><h3>Progresso sem culpa</h3><p>Métricas úteis para ajustar o ritmo — não para criar ansiedade.</p><div className="mini-chart">{Array.from({ length: 7 }, (_, index) => <i key={index} />)}</div></article>
-            <article className="bento bento-wide reveal"><div><span className="number">04</span><h3>Um baralho, várias formas de voltar ao conteúdo.</h3><p>Flashcards, quiz e áudio compartilham a mesma base, sem criar três rotinas paralelas.</p></div><div className="mode-pills"><span>Flashcards</span><span>Quiz</span><span>Áudio</span></div></article>
+        <section className="before-after section-pad" aria-labelledby="change-title">
+          <div className="section-heading centered">
+            <Eyebrow>MENOS ATRITO. MAIS CLAREZA.</Eyebrow>
+            <h2 id="change-title">De “tenho muita coisa para estudar”...</h2>
+            <p className="heading-punch">para “sei exatamente o que fazer agora”.</p>
+          </div>
+          <div className="comparison-grid">
+            <article className="comparison-card before-card">
+              <span className="comparison-label">ANTES</span>
+              <ul>
+                <li>PDFs enormes.</li>
+                <li>Releitura.</li>
+                <li>Dúvida sobre por onde começar.</li>
+                <li>Revisões esquecidas.</li>
+              </ul>
+            </article>
+            <article className="comparison-card after-card">
+              <span className="comparison-label">COM A LUMINA</span>
+              <ul>
+                <li>Flashcards e quizzes prontos.</li>
+                <li>Pontos fracos identificados.</li>
+                <li>Revisões organizadas.</li>
+                <li>Um plano claro para hoje.</li>
+              </ul>
+            </article>
+          </div>
+          <p className="comparison-result">De “acho que sei” para <strong>“eu consigo lembrar”.</strong></p>
+        </section>
+
+        <section className="daily section-pad" aria-labelledby="daily-title">
+          <div className="daily-copy">
+            <Eyebrow>UM PASSO DE CADA VEZ</Eyebrow>
+            <h2 id="daily-title">Abra a Lumina e saiba o que estudar hoje.</h2>
+            <p>Menos tempo planejando.<br /><strong>Mais tempo aprendendo.</strong></p>
+          </div>
+          <div className="daily-board">
+            <div className="daily-score"><span>HOJE</span><strong>18</strong><small>min de estudo</small></div>
+            <ul>
+              <li><i>12</i><span><b>revisões</b><small>prioridade agora</small></span></li>
+              <li><i>8</i><span><b>novos flashcards</b><small>conteúdo novo</small></span></li>
+              <li><i>1</i><span><b>quiz recomendado</b><small>teste seu domínio</small></span></li>
+            </ul>
           </div>
         </section>
 
-        <section className="school-section section-pad" id="escolas" aria-labelledby="schools-title"><div className="school-card reveal">
-          <div className="school-copy"><Eyebrow>Lumina para escolas</Eyebrow><h2 id="schools-title">Acompanhe a turma.<br /><em>Sem vigiar o aluno.</em></h2><p>Distribua acessos, organize materiais e enxergue adesão e evolução em um panorama claro para coordenação e professores.</p><a className="button button-light" href="mailto:contato@luminadeck.com.br?subject=Lumina%20Deck%20para%20minha%20escola">Conversar sobre minha escola <span aria-hidden="true">↗</span></a></div>
-          <div className="school-dashboard" aria-hidden="true"><div className="school-head"><span>Panorama da escola</span><i>Este mês</i></div><div className="school-metrics"><span><small>Alunos ativos</small><strong>184</strong><i>+12%</i></span><span><small>Revisões</small><strong>3.842</strong><i>+28%</i></span></div><div className="school-bars">{Array.from({ length: 8 }, (_, index) => <i key={index} />)}</div><div className="school-foot">{["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"].map((day) => <span key={day}>{day}</span>)}</div></div>
-        </div></section>
+        <section className="oito-section section-pad" id="oito" aria-labelledby="oito-title">
+          <div className="oito-stage">
+            <span className="oito-bubble bubble-one">Hora de revisar!</span>
+            <Oito className="oito-large" />
+            <span className="oito-bubble bubble-two">Você consegue.</span>
+          </div>
+          <div className="oito-copy">
+            <Eyebrow>SEU COMPANHEIRO DE ESTUDOS</Eyebrow>
+            <h2 id="oito-title">Conheça o Oito.</h2>
+            <h3>Seu fiel escudeiro nos estudos.</h3>
+            <p>O Oito acompanha sua rotina, lembra suas revisões e ajuda você a não perder o ritmo.</p>
+            <div className="oito-reminders">
+              <p>Errou? <strong>Oito lembra.</strong></p>
+              <p>Está na hora de revisar? <strong>Oito te avisa.</strong></p>
+            </div>
+            <div className="brand-promise"><b>A Lumina organiza.</b><b>O Oito lembra.</b><b>Você aprende.</b></div>
+          </div>
+        </section>
 
-        <section className="closing section-pad" aria-labelledby="closing-title"><div className="closing-orb" aria-hidden="true"><Image src="/logo-lumina.svg" width={150} height={97} alt="" /></div><Eyebrow dark>Seu próximo estudo começa aqui</Eyebrow><h2 id="closing-title">Mais clareza.<br /><em>Menos atrito.</em></h2><p>Estamos preparando o acesso público ao dashboard. Entre para acompanhar o lançamento.</p><div className="hero-actions"><a className="button button-primary" href="/dashboard/">Acessar dashboard</a><a className="button button-secondary" href="mailto:contato@luminadeck.com.br">Falar com a Lumina</a></div><StoreBadges dark /></section>
+        <section className="features section-pad" id="recursos" aria-labelledby="features-title">
+          <div className="section-heading centered">
+            <Eyebrow>TUDO NO MESMO RITMO</Eyebrow>
+            <h2 id="features-title">Tudo para você aprender melhor.</h2>
+          </div>
+          <div className="feature-grid">
+            {features.map((feature, index) => (
+              <article className={`feature-card feature-${index + 1}`} key={feature.title}>
+                <span className="feature-icon">{feature.icon}</span>
+                <h3>{feature.title}</h3>
+                <p>{feature.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="audience section-pad" aria-labelledby="audience-title">
+          <div>
+            <Eyebrow>PARA O QUE VOCÊ QUISER APRENDER</Eyebrow>
+            <h2 id="audience-title">Aprenda muito. Esqueça menos.</h2>
+            <p><strong>ENEM e Vestibulares. Faculdade. Concursos. Idiomas.</strong></p>
+            <p>Transforme seu conteúdo em <strong>flashcards, quizzes e revisões inteligentes</strong> para aprender de verdade e lembrar depois.</p>
+            <p className="audience-promise"><b>A Lumina organiza.</b> Você aprende.</p>
+          </div>
+          <div className="subject-cloud" aria-hidden="true">
+            <span>Biologia</span><span>Direito</span><span>Inglês</span><span>História</span><span>Medicina</span><span>Matemática</span>
+          </div>
+        </section>
+
+        <section className="price section-pad" aria-labelledby="price-title">
+          <Oito className="price-oito" />
+          <div>
+            <Eyebrow>SEM PEGADINHA</Eyebrow>
+            <h2 id="price-title">E quanto custa?</h2>
+            <p className="price-answer">Nada.</p>
+            <p>Hoje, a Lumina é <strong>100% grátis.</strong></p>
+            <p>Entre, envie seu material e comece a estudar.</p>
+            <a className="button button-primary" href="/dashboard/">Criar minha conta grátis</a>
+          </div>
+        </section>
+
+        <section className="closing section-pad" aria-labelledby="closing-title">
+          <Oito className="closing-oito" />
+          <Eyebrow>SEU PRÓXIMO PASSO</Eyebrow>
+          <h2 id="closing-title">Estudar mais nem sempre é a resposta.<br /><span>Estudar melhor é.</span></h2>
+          <div className="closing-steps"><span>Transforme seu material.</span><span>Pratique de verdade.</span><span>Revise na hora certa.</span></div>
+          <p>E saiba exatamente o que estudar todos os dias.</p>
+          <div className="closing-promise"><b>A Lumina organiza.</b><b>O Oito lembra.</b><b>Você aprende.</b></div>
+          <p><strong>100% grátis.</strong></p>
+          <a className="button button-light" href="/dashboard/">Começar a estudar grátis</a>
+        </section>
       </main>
 
-      <footer><Brand footer /><p>Aprender fica mais leve quando cada revisão tem um porquê.</p><div><a href="mailto:contato@luminadeck.com.br">Contato</a><a href="/dashboard/">Dashboard</a><span>© 2026 Lumina Deck</span></div></footer>
+      <footer>
+        <Brand footer />
+        <p><strong>Lumina Deck</strong><br /><em>Esquecer é uma escolha.</em></p>
+        <div><a href="mailto:contato@luminadeck.com.br">Contato</a><a href="/dashboard/">Entrar</a><span>© 2026 Lumina Deck</span></div>
+      </footer>
     </>
   );
 }

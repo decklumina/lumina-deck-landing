@@ -9,10 +9,10 @@ export function Brand({ footer = false }: { footer?: boolean }) {
       aria-label="Lumina Deck — início"
     >
       <span className="brand-mark">
-        <Image src="/logo-lumina.svg" width={45} height={30} alt="" />
+        <Image src="/logo-lumina.svg" width={45} height={45} alt="" />
       </span>
       <span>
-        Lumina Deck<small>APRENDER FICA MAIS LEVE</small>
+        Lumina Deck<small>APRENDA. ESQUEÇA MENOS.</small>
       </span>
     </Link>
   );

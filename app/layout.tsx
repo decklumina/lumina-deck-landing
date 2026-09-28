@@ -5,11 +5,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://luminadeck.com.br"),
   title: {
-    default: "Lumina Deck — seu material vira aprendizado",
+    default: "Lumina Deck — aprenda muito, esqueça menos",
     template: "%s — Lumina Deck",
   },
   description:
-    "Transforme PDFs, imagens e anotações em flashcards, quizzes e áudio. Revise no momento certo com inteligência artificial e repetição espaçada FSRS.",
+    "Transforme PDFs, slides, fotos e anotações em flashcards, quizzes e revisões inteligentes. A Lumina organiza. Você aprende.",
   applicationName: "Lumina Deck",
   alternates: { canonical: "/" },
   icons: {
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: "Lumina Deck",
-    title: "Lumina Deck — seu material vira aprendizado",
+    title: "Lumina Deck — aprenda muito, esqueça menos",
     description:
-      "Menos tempo organizando. Mais tempo aprendendo com IA, flashcards e FSRS.",
+      "Transforme seu conteúdo em flashcards, quizzes e revisões inteligentes. 100% grátis.",
     url: "/",
   },
 };
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#101a3d",
+  themeColor: "#1672ef",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
