@@ -153,7 +153,10 @@ export default function HomePage() {
         <section className="recognition section-pad" aria-labelledby="recognition-title">
           <div className="section-heading centered">
             <Eyebrow>RECONHECER NÃO É LEMBRAR</Eyebrow>
-            <h2 id="recognition-title">Você estuda. Mas será que está aprendendo?</h2>
+            <h2 id="recognition-title">
+              Você estuda.
+              <span className="title-break">Mas será que está aprendendo?</span>
+            </h2>
             <p>
               Reler, grifar e fazer resumos podem dar a sensação de aprendizado.
               Mas reconhecer uma informação não significa conseguir lembrá-la sozinho.
@@ -163,7 +166,9 @@ export default function HomePage() {
             <div className="recall-passive">
               <span>LEITURA PASSIVA</span>
               <p>A resposta parece familiar quando está na sua frente.</p>
-              <div className="fake-highlight">A mitocôndria produz energia para a célula.</div>
+              <div className="fake-highlight">
+                <span>A mitocôndria produz energia para a célula.</span>
+              </div>
               <small>“Ah, isso eu sei.”</small>
             </div>
             <div className="recall-arrow" aria-hidden="true">→</div>
